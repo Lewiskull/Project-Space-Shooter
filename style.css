@@ -4,17 +4,22 @@
 }
 
 .screen {
-    width: 70vw;
+    width: 50vw;
     height: 80vh;
     border: 1px solid black;
+    position: relative;
 }
 
-.gameScreen,
-.endScreen {
+.game-screen,
+.end-screen {
     display: none;
 }
 
-.startScreen {
+.game-screen{
+    background-image: url("./imagery/backgroundspace.png");
+}
+
+.start-screen {
     display: flex;
     flex-direction: column;
     justify-content: center;
