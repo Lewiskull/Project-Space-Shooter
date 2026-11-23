@@ -8,6 +8,7 @@
     height: 80vh;
     border: 1px solid black;
     position: relative;
+    overflow: hidden;
 }
 
 .game-screen,
@@ -21,9 +22,24 @@
 
 .start-screen {
     display: flex;
+}
+
+
+.start-screen,
+.end-screen {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.hud {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    gap: 20px;
+    color: white;
+    font-size: 24px;
 }
 
 body {

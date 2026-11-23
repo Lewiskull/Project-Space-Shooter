@@ -2,11 +2,12 @@ class Enemy{
     constructor() {
             this.gameScreen = document.querySelector(".game-screen")
         this.element = document.createElement("div")
-        this.x = 10
-        this.bottom = 500 
         this.width = 50
         this.height = 50
-        this.image = "./imagery/enemy.png"
+        this.x = Math.floor(Math.random() * (this.gameScreen.offsetWidth - this.width))
+        this.bottom = this.gameScreen.offsetHeight
+        this.speed = 2
+        this.image = "./imagery/Alien-image.png"
 
         this.element.style.position = "absolute"
         this.element.style.width = `${this.width}px`
@@ -18,5 +19,10 @@ class Enemy{
         this.element.style.backgroundSize = `cover`
 
         this.gameScreen.appendChild(this.element)
+    }
+
+    moveDown() {
+        this.bottom -= this.speed
+        this.element.style.bottom = `${this.bottom}px`
     }
 }
