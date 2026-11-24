@@ -5,6 +5,7 @@ class Game {
         this.startScreen = document.querySelector(".start-screen")
         this.player = null
         this.enemies = []
+        this.bullets = []
         this.enemyInterval = null
         this.score = 0
         this.lives = 3
@@ -66,12 +67,34 @@ animate() {
             return false
         }
 
-        if (enemy.bottom + enemy.height < 0) {
+        if (enemy.y > this.gameScreen.offsetHeight) {
             enemy.element.remove()
             return false
         }
         
         return true 
+    })
+
+     this.bullets = this.bullets.filter(bullet => {
+        bullet.moveUp()
+
+        const hitEnemy = this.enemies.find(enemy => bullet.isColliding(enemy))
+
+        if(hitEnemy) {
+            bullet.element.remove()
+            hitEnemy.element.remove()
+            this.enemies = this.enemies.filter(enemy => enemy !== hitEnemy)
+            this.score++
+            this.updateHud()
+            return false
+        }
+
+        if (bullet.y + bullet.height < 0) {
+            bullet.element.remove()
+            return false
+        }
+
+        return true
     })
 }
 
@@ -85,6 +108,16 @@ gameOver() {
 
 spawnEnemy() {
     this.enemies.push(new Enemy())
+ }
+
+
+ shoot() {
+    const bulletWidth = 10
+    const bulletHeight = 20
+    const x = this.player.x + (this.player.width - bulletWidth) / 2
+    const y = this.player.y - bulletHeight
+    this.bullets.push(new Bullet(x, y))
+
  }
 
 }

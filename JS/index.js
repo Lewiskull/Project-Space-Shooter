@@ -23,6 +23,9 @@ window.addEventListener("load", () => {
         if(e.key === "ArrowRight") {
             game.player.moveRight()
         }
+        if(e.key === " ") {
+            game.shoot()
+        }
     
     })
 

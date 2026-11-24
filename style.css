@@ -18,7 +18,17 @@
 
 .game-screen{
     background-image: url("./imagery/backgroundspace.png");
+    background-repeat: repeat-y;
+    background-size: 100% 200px;
+    animation: scrollBackground 15s linear infinite;
+  
 }
+
+@keyframes scrollBackground {
+    from {background-position-y: 0; }
+    to {background-position-y: 200px; }
+}
+
 
 .start-screen {
     display: flex;
@@ -37,9 +47,9 @@
     top: 10px;
     left: 10px;
     display: flex;
-    gap: 20px;
+    gap: 15px;
     color: white;
-    font-size: 24px;
+    font-size: 22px;
 }
 
 body {
