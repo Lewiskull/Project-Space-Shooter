@@ -3,6 +3,16 @@
     padding: 0;
 }
 
+body {
+    font-family:'Orbitron', sans-serif;
+    background-color: #08080c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+}
+
 .screen {
     width: 50vw;
     height: 80vh;
@@ -31,16 +41,65 @@
 
 
 .start-screen {
-    display: flex;
-}
-
-
-.start-screen,
-.end-screen {
+    background-image: url("./imagery/backgroundspace.png");
+    background-size: 100% 200px;
+    text-align: center;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 30px;
+    display: flex;
 }
+
+.title {
+    color: gold;
+    font-size: 28px;
+    line-height: 1.5;
+    text-shadow: 4px 4px 0 #b34700;
+}
+
+.subtitle {
+    color:cyan;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.start-btn {
+    font-family: inherit;
+    background: transparent;
+    border: none;
+    color: limegreen;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.start-btn:hover {
+    color: red;
+}
+
+.end-screen {
+    background-image: url("./imagery/end-screen.webp");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center 30%;
+    background-color: black;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+ }
+
+ .win-screen {
+    background-image: url("./imagery/winscreen.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: none;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+    background-color:black;
+ }
 
 .hud {
     position: absolute;
@@ -49,12 +108,43 @@
     display: flex;
     gap: 15px;
     color: white;
-    font-size: 22px;
+    font-size: 18px;
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+.restart-btn {
+    background-color: transparent;
+    color: #f5a623;
+    border: 2px solid #f5a623;
+    border-radius: 4px;
+    padding: 12px 32px;
+    font-family: inherit;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    margin-bottom: 30px;
+}
+
+.restart-btn:hover{
+    background-color: #f5a623;
+    color: black;
+    box-shadow: 0 0 15px #f5a623;
+    transform: scale(1.1);
+}
+
+.restart-btn:active {
+    transform: scale(0.95);
+}
+
+.music-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #f5a623;
+    background: transparent;
+    cursor: pointer;
 }

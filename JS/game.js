@@ -3,9 +3,13 @@ class Game {
         this.gameScreen = document.querySelector(".game-screen")
         this.endScreen = document.querySelector(".end-screen")
         this.startScreen = document.querySelector(".start-screen")
+        this.winScreen = document.querySelector(".win-screen")
         this.player = null
         this.enemies = []
         this.bullets = []
+        this.boss = null
+        this.bossBullets = []
+        this.bossDefeated = false
         this.enemyInterval = null
         this.score = 0
         this.lives = 3
@@ -13,8 +17,12 @@ class Game {
 
 
 startGame() {
+
+    this.changeMusic(introMusic)
+
     this.startScreen.style.display = "none"
     this.endScreen.style.display = "none"
+    this.winScreen.style.display = "none"
     this.gameScreen.style.display = "flex"
     this.gameScreen.innerHTML = ""
 
@@ -89,6 +97,18 @@ animate() {
             return false
         }
 
+        if (this.boss !== null && bullet.isColliding(this.boss)) {
+            bullet.element.remove()
+            this.boss.health--  
+
+            if(this.boss.health <= 0) {
+                this.defeatBoss()
+            }
+
+            return false
+        }
+
+
         if (bullet.y + bullet.height < 0) {
             bullet.element.remove()
             return false
@@ -96,7 +116,46 @@ animate() {
 
         return true
     })
+
+    if (this.score >= 20 && this.boss === null && !this.bossDefeated) {
+        clearInterval(this.enemyInterval)
+        this.enemies.forEach(enemy => enemy.element.remove())
+        this.enemies = []
+        this.boss = new finalBoss()
+        this.changeMusic(bossMusic)
+    }
+
+    if (this.boss !== null) {
+        this.boss.move()
+
+        if (this.boss.y >= 10 && Math.random() < 0.02) {
+            this.bossShoot()
+        }
+    }
+
+    this.bossBullets = this.bossBullets.filter(bullet => {
+        bullet.moveDown()
+
+        if (this.player.isColliding(bullet)) {
+            bullet.element.remove()
+            this.lives--
+            this.updateHud()
+            if (this.lives <= 0) {
+                this.gameOver()
+            }
+            return false
+
+        }
+
+        if (bullet.y > this.gameScreen.offsetHeight) {
+            bullet.element.remove()
+            return false
+        }
+
+        return true
+    })
 }
+
 
 gameOver() {
     clearInterval(this.enemyInterval)
@@ -118,6 +177,41 @@ spawnEnemy() {
     const y = this.player.y - bulletHeight
     this.bullets.push(new Bullet(x, y))
 
+ }
+
+
+ bossShoot() {
+    const x = this.boss.x + (this.boss.width - 10) / 2
+    const y = this.boss.y + this.boss.height
+    this.bossBullets.push(new bossBullet(x, y))
+ }
+
+
+ winGame() {
+    clearInterval(this.enemyInterval)
+    clearInterval(this.moveInterval)
+    this.gameScreen.style.display = "none"
+    this.winScreen.style.display = "flex"
+}
+
+
+ defeatBoss() {
+    this.boss.element.remove()
+    this.boss = null
+    this.bossDefeated = true
+    this.winGame()
+}
+
+
+ changeMusic(newMusic) {
+    if (currentMusic === newMusic) return
+
+    const wasPlaying = !currentMusic.paused
+    currentMusic.pause()
+    currentMusic.currentTime = 0
+    currentMusic = newMusic
+
+    if (wasPlaying) currentMusic.play()
  }
 
 }

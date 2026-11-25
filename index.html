@@ -4,27 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpaceShooter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <button class="music-btn">🎵</button>
     <div class="start-screen screen">
-      <h1> Welcome to Megalovania</h1>
-      <p>Use your keys ⬆️➡️⬅️⬇️ to move the spaceship</p>
-      <p>Use your mouse "space key" to shoot</p>
+      <h1 class="title"> Welcome to Megalovania</h1>
+      <p class="subtitle">Press ➡️⬅️ to move the spaceship</p>
+      <p class="subtitle">Press "SPACE" to shoot</p>
       <button class="start-btn">START GAME</button>
     </div>
     <div class="game-screen screen"></div>
     <div class="end-screen screen">
-      <h1>GAME OVER</h1>
-      <p>try again if you want to save the galaxy!</p>
       <button class="restart-btn">TRY AGAIN</button>
+    </div>
+    <div class="win-screen screen">
+      <h1 class="title">YOU SAVE THE GALAXY</h1>
+      <button class="restart-btn win-btn">PLAY AGAIN</button>
     </div>
 
     <script src="JS/game.js"></script>
     <script src="JS/index.js"></script>
     <script src="JS/player.js"></script>
     <script src="JS/enemy.js"></script>
-    <script src="JS/Bullet.js"></script>
+    <script src="JS/bullet.js"></script>
+    <script src="JS/finalBoss.js"></script>
+    <script src="JS/bossBullet.js"></script>
     
   </body>
 </html>
