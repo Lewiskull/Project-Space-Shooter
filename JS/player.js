@@ -6,7 +6,7 @@ class Player {
         this.width = 50
         this.height = 70
         this.y = this.gameScreen.offsetHeight - this.height - 10
-        this.image = "../imagery/spaceship-megalovania.png"
+        this.image = "./imagery/spaceship-megalovania.png"
         
 
         this.element.style.position = "absolute"
