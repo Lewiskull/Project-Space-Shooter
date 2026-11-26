@@ -6,7 +6,7 @@ class Enemy{
         this.height = 40
         this.x = Math.floor(Math.random() * (this.gameScreen.offsetWidth - this.width))
         this.y = -this.height
-        this.speed = 2
+        this.speed = 3
         this.image = "./imagery/Alien-Image.png"
 
         this.element.style.position = "absolute"

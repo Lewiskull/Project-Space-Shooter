@@ -13,7 +13,7 @@ class bossBullet{
         this.element.style.height = `${this.height}px`
         this.element.style.top = `${this.y}px`
         this.element.style.left = `${this.x}px`
-        this.element.style.backgroundColor = "green"
+        this.element.style.backgroundColor = "red"
 
         this.gameScreen.appendChild(this.element)
 

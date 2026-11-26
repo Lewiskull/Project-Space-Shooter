@@ -9,7 +9,7 @@ class finalBoss{
         this.direction = 1
         this.speed = 3
         this.health = 30
-        this.image = "../imagery/Andross_boss.png"
+        this.image = "./imagery/Andross_boss.png"
 
         this.element.style.position = "absolute"
         this.element.style.width = `${this.width}px`

@@ -53,14 +53,14 @@ body {
 
 .title {
     color: gold;
-    font-size: 28px;
+    font-size: 34px;
     line-height: 1.5;
     text-shadow: 4px 4px 0 #b34700;
 }
 
 .subtitle {
     color:cyan;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 1.8;
 }
 
