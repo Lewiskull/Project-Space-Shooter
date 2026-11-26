@@ -1,33 +1,33 @@
-Megalovania
+# 🚀 Megalovania
 
-Megalovania is a space shooter inspired by classics such as Space Invaders and the atmosphere of 80s arcade shooters. Pilot your spaceship, fight off alien invaders and face a powerful final boss.
+A space shooter inspired by Space Invaders and 80s arcade shooters.
 
-Megalovania gameplay
-
-Play the game
-
-Play Megalovania here
+[▶️ Play Megalovania here](https://lewiskull.github.io/Project-Space-Shooter/)
 
 ![Game screenshot](./imagery/screenshot.png)
 
-How to play
-Control	Action
-Left / Right arrow keys	Move your ship
-Space bar	Shoot
-🎵 button	Play or pause the music
-Destroy the aliens to increase your score.
-Reach 20 points to summon the final boss.
-Defeat the boss to win the game.
-You have 3 lives. You lose one when an alien or a boss bullet hits you. Lose all three and it's game over.
-Use the button on the end screen to play again.
-Features
-Shooting system and collision detection
-Final boss that moves from side to side and shoots back
-Background music that changes when the boss appears
-Shooting sound effects
-Custom start and end screens using the Orbitron font
-Built with
-HTML
-CSS
-JavaScript
-GitHub Pages
+## 🎮 How to play
+
+* Use the ⬅️ left and ➡️ right arrow keys to move your ship.
+* Press the space bar to shoot.
+* Destroy aliens to increase your score.
+* Reach 20 points to face the final boss.
+* Defeat the boss to win.
+* You have 3 lives. If an alien or a boss bullet hits you, you lose one.
+* If you lose all your lives, it's game over.
+* Use the 🎵 button to turn the music on or off.
+
+## ✨ Features
+
+* Shooting system with collision detection
+* Aliens that fall from random positions
+* Final boss that moves side to side and shoots back
+* Start, win and game over screens with a replay button
+* Shooting sound effects
+* Background music that changes when the boss appears
+
+## 🛠️ Built with
+
+* HTML5
+* CSS3
+* JavaScript (ES6 classes, no libraries)
